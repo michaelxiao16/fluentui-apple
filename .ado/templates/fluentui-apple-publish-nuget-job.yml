@@ -11,6 +11,7 @@ jobs:
   cancelTimeoutInMinutes: 5 # how much time to give 'run always even if cancelled tasks' before killing them
   
   steps:
+  
   - task: securedevelopmentteam.vss-secure-development-tools.build-task-credscan.CredScan@3
     displayName: 'Run Credential Scanner'
 

@@ -6,13 +6,14 @@ jobs:
   - group: InfoSec-SecurityResults
   - name: BUILDSECMON_OPT_IN
     value: true
-  - name: tags
-    value: production,externalfacing
   displayName: FluentUI Apple Publish NuGet
   timeoutInMinutes: 60 # how long to run the job before automatically cancelling
   cancelTimeoutInMinutes: 5 # how much time to give 'run always even if cancelled tasks' before killing them
   
   steps:
+  - task: securedevelopmentteam.vss-secure-development-tools.build-task-credscan.CredScan@3
+    displayName: 'Run Credential Scanner'
+
   # Select proper Xcode version
   - template: apple-xcode-select.yml
 

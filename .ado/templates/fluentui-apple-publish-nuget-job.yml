@@ -42,12 +42,12 @@ jobs:
       artifactName: SBom-$(System.JobAttempt)
       targetPath: '$(System.DefaultWorkingDirectory)/_manifest'
 
-  # push the package package
-  - task: NuGetCommand@2
-    displayName: 'NuGet push'
-    inputs:
-      command: push
-      packagesToPush: '$(Build.ArtifactStagingDirectory)/Microsoft.FluentUI.Apple.*.nupkg'
-      publishVstsFeed: Office
+  # # push the package package
+  # - task: NuGetCommand@2
+  #   displayName: 'NuGet push'
+  #   inputs:
+  #     command: push
+  #     packagesToPush: '$(Build.ArtifactStagingDirectory)/Microsoft.FluentUI.Apple.*.nupkg'
+  #     publishVstsFeed: Office
 
   - task: ComponentGovernanceComponentDetection@0

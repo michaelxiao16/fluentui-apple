@@ -49,3 +49,5 @@ jobs:
       command: push
       packagesToPush: '$(Build.ArtifactStagingDirectory)/Microsoft.FluentUI.Apple.*.nupkg'
       publishVstsFeed: Office
+
+  - task: ComponentGovernanceComponentDetection@0

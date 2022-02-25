@@ -1,5 +1,12 @@
 jobs:
+- job: compliance
+  pool: OE-OfficePublic
+  steps:
+    - task: securedevelopmentteam.vss-secure-development-tools.build-task-credscan.CredScan@3
+      displayName: 'Run Credential Scanner'
+
 - job: fluentui_apple_publish_nuget
+  dependsOn: compliance
   pool:
     vmImage: 'macos-11'
   variables:
@@ -11,10 +18,6 @@ jobs:
   cancelTimeoutInMinutes: 5 # how much time to give 'run always even if cancelled tasks' before killing them
   
   steps:
-  
-  - task: securedevelopmentteam.vss-secure-development-tools.build-task-credscan.CredScan@3
-    displayName: 'Run Credential Scanner'
-
   # Select proper Xcode version
   - template: apple-xcode-select.yml
 
